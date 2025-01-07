@@ -1,0 +1,146 @@
+@import "reset";
+
+@mixin background-image($url) {
+    background: {
+        image: url($url);
+        position: center;
+        size: cover;
+    }
+}
+
+:root {
+    --dark-cyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+    --dark-blue: hsl(212, 21%, 14%);
+    --gray-blue: hsl(228, 12%, 48%);
+    --white: hsl(0, 0%, 100%);
+}
+
+body {
+    background-color: var(--cream);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--gray-blue);
+    gap: 1rem;
+    font: {
+        family: "Montserrat";
+        weight: 500;
+    }
+}
+
+main {
+    background-color: var(--white);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-image {
+    @include background-image("./images/image-product-mobile.jpg");
+    width: 100%;
+    height: 20rem;
+    border-radius: 12px 12px 0 0 ;
+}
+
+article {
+    padding: 20px;
+}
+
+#top-content {
+    text-transform: uppercase;
+    font-size: .8rem;
+    letter-spacing: .4rem;
+}
+
+#final-price {
+    color: var(--dark-cyan);
+    width: fit-content;
+}
+
+h1 {
+    color: var(--dark-blue);
+    margin-top: .8rem;
+}
+
+h1, #final-price {
+    font: {
+        family: "Fraunces";
+        weight: 700;
+        size: 2.5rem;
+    }
+}
+
+#previous-price {
+    display: flex;
+    width: fit-content;
+    text-decoration: line-through;  
+    justify-content: start;
+}
+
+#price-div {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 1rem 0;
+}
+
+button {
+    background-color: var(--dark-cyan);
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--white);
+    font: {
+        weight: 700;
+        size: .9rem;
+    }
+    letter-spacing: .1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    cursor: pointer;
+}
+
+button:hover, 
+button:active {
+    background-color: #18342a;
+}
+
+.attribution { 
+    font: {
+        size: 11px; 
+        weight: 700; 
+    }
+    text-align: center;
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+@media (min-width: 700px) {
+    main {
+        flex-direction: row;
+        max-width: 700px;
+        height: 480px;
+    }
+
+    article {
+        width: 50%;
+    }
+
+    #main-image {
+        border-radius: 12px 0 0 12px;
+        width: 50%;
+        height: 480px;
+        @include background-image("./images/image-product-desktop.jpg");
+    }
+}
